@@ -75,12 +75,11 @@ console.log('ytrewq:', dict.get('ytrewq'));
 console.log('abc:', dict.get('abc'));
 console.log('cba:', dict.get('cba'));
 console.log('unknown:', dict.get('unknown'));
-console.log('length:', dict.length);
 
 dict.display();
+console.log('length:', dict.length);
 
 dict.remove('test');
 
-console.log('length:', dict.length);
-
 dict.display();
+console.log('length:', dict.length);
