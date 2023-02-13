@@ -9,17 +9,16 @@ class HashTable {
     let res = 0;
 
     for (let i = 0; i < str.length; i++) {
-      res += str.charCodeAt(i);
+      const char = str.charCodeAt(i);
+      res = (res << 5) - res + char;
     }
 
-    console.log('hash:', res, key);
-
-    return res;
+    return Math.abs(res);
   }
 
   add(key, value) {
-    this.size++;
     this.store[this.hash(key)] = value;
+    this.size++;
   }
 
   get(key) {
@@ -31,6 +30,19 @@ class HashTable {
     }
 
     return res;
+  }
+
+  remove(name) {
+    const hash = this.hash(name);
+
+    /// key при переборе будет в виде строки, а hash в виде числа.
+    /// привести к единому типу через +key
+    for (let key in this.store) {
+      if (this.store.hasOwnProperty(key) && +key === hash) {
+        delete this.store[key];
+        this.size--;
+      }
+    }
   }
 
   get length() {
@@ -45,25 +57,27 @@ class HashTable {
 /// - - - - - - - - - - - - - - - - - - - - - -
 
 const dict = new HashTable();
-// dict.add('a', 0);
-dict.add('ab', 1);
-dict.add('ba', 2);
-// dict.add('test', 3);
-// dict.add('qwerty', 4);
-// dict.add('ytrewq', 5);
-// dict.add('abc', 6);
-// dict.add('cba', 7);
+dict.add('a', 9);
+dict.add('ab', 18);
+dict.add('ba', 27);
+dict.add('test', 36);
+dict.add('qwerty', 45);
+dict.add('ytrewq', 54);
+dict.add('abc', 63);
+dict.add('cba', 72);
 
-console.group('res:');
-// console.log('a:', dict.get('a'));
+console.group('----:');
+console.log('a:', dict.get('a'));
 console.log('ab:', dict.get('ab'));
 console.log('ba:', dict.get('ba'));
-// console.log('test:', dict.add('test'));
-// console.log('qwerty:', dict.get('qwerty'));
-// console.log('ytrewq:', dict.get('ytrewq'));
-// console.log('abc:', dict.get('abc'));
-// console.log('cba:', dict.get('cba'));
-// console.log('unknown:', dict.get('unknown'));
-// console.log('length:', dict.length);
-dict.display;
+console.log('test:', dict.get('test'));
+console.log('qwerty:', dict.get('qwerty'));
+console.log('ytrewq:', dict.get('ytrewq'));
+console.log('abc:', dict.get('abc'));
+console.log('cba:', dict.get('cba'));
+console.log('unknown:', dict.get('unknown'));
+console.log('length:', dict.length);
+dict.remove('test');
+console.log('length:', dict.length);
+dict.display();
 console.groupEnd();
