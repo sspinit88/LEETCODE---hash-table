@@ -77,6 +77,8 @@ console.log('cba:', dict.get('cba'));
 console.log('unknown:', dict.get('unknown'));
 console.log('length:', dict.length);
 
+dict.display();
+
 dict.remove('test');
 
 console.log('length:', dict.length);
