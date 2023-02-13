@@ -65,5 +65,5 @@ console.log('ba:', dict.get('ba'));
 // console.log('cba:', dict.get('cba'));
 // console.log('unknown:', dict.get('unknown'));
 // console.log('length:', dict.length);
-dict.display();
+dict.display;
 console.groupEnd();
