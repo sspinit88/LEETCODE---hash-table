@@ -66,7 +66,7 @@ dict.add('ytrewq', 54);
 dict.add('abc', 63);
 dict.add('cba', 72);
 
-console.group('----:');
+
 console.log('a:', dict.get('a'));
 console.log('ab:', dict.get('ab'));
 console.log('ba:', dict.get('ba'));
@@ -77,7 +77,9 @@ console.log('abc:', dict.get('abc'));
 console.log('cba:', dict.get('cba'));
 console.log('unknown:', dict.get('unknown'));
 console.log('length:', dict.length);
+
 dict.remove('test');
+
 console.log('length:', dict.length);
+
 dict.display();
-console.groupEnd();
