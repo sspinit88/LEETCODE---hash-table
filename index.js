@@ -23,7 +23,7 @@ class HashTable {
 
   get(key) {
     const hash = this.hash(key);
-    let res = null;
+    let res = undefined;
 
     if (this.store.hasOwnProperty(hash)) {
       res = this.store[hash];
@@ -65,7 +65,6 @@ dict.add('qwerty', 45);
 dict.add('ytrewq', 54);
 dict.add('abc', 63);
 dict.add('cba', 72);
-
 
 console.log('a:', dict.get('a'));
 console.log('ab:', dict.get('ab'));
