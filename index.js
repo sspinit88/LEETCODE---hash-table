@@ -57,7 +57,7 @@ class HashTable {
 /// - - - - - - - - - - - - - - - - - - - - - -
 
 const dict = new HashTable();
-dict.add('a', 9);
+dict.add('apelsin', 'апельсинка');
 dict.add('ab', 18);
 dict.add('ba', 27);
 dict.add('test', 36);
@@ -66,7 +66,7 @@ dict.add('ytrewq', 54);
 dict.add('abc', 63);
 dict.add('cba', 72);
 
-console.log('a:', dict.get('a'));
+console.log('apelsin:', dict.get('apelsin'));
 console.log('ab:', dict.get('ab'));
 console.log('ba:', dict.get('ba'));
 console.log('test:', dict.get('test'));
